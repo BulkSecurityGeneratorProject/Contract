@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "Contract",
+    "packageName": "test.contract",
+    "packageFolder": "test/contract",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mssql",
+    "prodDatabaseType": "mssql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "6.1.0",
+    "jwtSecretKey": "ZTdmMWRmYjk0NGRhNTM3OTNlZDVmNjVlN2ZjZDNiMmE4ZTBjODIzNzcxMTdjNDVmNmJjYTIzOTA2OGQ4YTQ4ZGE5OWM4MDVjODAxZGFlN2RmNjIxZmE4NTVlYzkzOGIyZTg5ZmMzZjk3NThmY2RjYTRiMzI4MTZjYTViODhhMzQ=",
+    "clientTheme": "none",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "aaltihami",
+  "repository-name": "Contract"
+}
