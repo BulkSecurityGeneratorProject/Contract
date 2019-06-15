@@ -1,0 +1,19 @@
+{
+    "name": "COCO",
+    "fields": [
+        {
+            "fieldName": "coco",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190615190228",
+    "entityTableName": "coco",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
