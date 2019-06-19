@@ -1,0 +1,160 @@
+
+
+entity RentContract {
+    contractNumber Long required,
+    contractSignDate Instant required,
+    contractStartDate Instant required,
+    contractEndDate Instant required,
+    contractSignLocation String required,
+    contractStatus ContractStatus required,
+    contratType ContractType required,
+    extendedTo String required,
+    extendedTimes Integer required,
+    rentDuration Integer required,
+	rentDayCost Double required,
+    rentHourCost Double required,
+	odometerKmBefore Double required,
+	allowedLateHours Integer required,
+    lateHourCost Double required,
+    allowedKmPerDay Double required,
+    allowedKmPerHour Double required,
+    carTransferCost Double required,
+    allowedDriveArea DriveArea required,
+    receiveLocation String required,
+    returnLocation String required,
+    earlyReturnPolicy String required,
+    contractExtensionMechanism String required,
+    accidentsAndFaultReportingMechanism String required,
+    odometerKmAfter Double required,
+    lateHours Double required,
+    oilChangeTime Instant required,
+    rentStatus VehicleItemStatus required,
+    returnStatus VehicleItemStatus,
+    renter PersonInfo required,
+    extraDriver PersonInfo,
+    rentedDriver PersonInfo,
+    vehicleDetails VehicleDetails required,
+    paymentDetails PaymentDetails required
+}
+
+entity VehicleItemStatus {
+	ac Integer required,
+    radioStereo  Integer required,
+    screen  Integer required,
+    speedometer  Integer required,
+    carSeats Integer required,
+    tires Integer required,
+    spareTire  Integer required,
+    spareTireTools Integer required,
+    firtsAidKit Integer required,
+    key Integer required,
+    fireExtinguisher Integer required,
+    safetyTriangle Integer required
+}
+
+entity PersonInfo {
+	arFullName String required,
+    enFullName String required,
+    birthDate Instant required,
+    hijriBirthDate Integer required,
+    nationality Nationality required,
+    idType IdType,
+    id String,
+    idExpiryDate Instant,
+    hijriIdExpiryDate Integer,
+    idCopyNumber Integer,
+    issuePlace String,
+    mobile String required,
+    licenseType LicenseType,
+    licenseExpiryDate Instant,
+    address String,
+    nationalAddress String,
+    workAddress String
+}
+
+
+entity VehicleDetails{
+	type VehicleType required,
+    plateNumber String required,
+    manufactureYear Integer required,
+    color String required,
+    registrationType RegistrationType required,
+    operationCardNumber String required,
+    operationCardExpiryDate Instant required,
+    insuranceNumber String required,
+    insuranceExpiryDate Instant required,
+    insuranceType InsuranceType required,
+    additionalInsurance String,
+    oilType OilType required,
+    oilChangeDate Instant required,
+    oilChangeKmDistance Integer required,
+    fuelType FuelType required,
+    availableFuel Integer required,
+    enduranceAmount Integer required
+}
+
+entity PaymentDetails {
+ 	total Integer required, 
+    totalRentCost Double required,
+	extraKmCost Double required,
+    driverCost Double required,
+    internationalAuthorizationCost Double required,
+    vehicleTransferCost Double required,
+    sparePartsCost Double required,
+    oilChangeCost Double required,
+    damageCost  Double required,
+	fuelCost  Double required,
+	discountPercentage Integer required,
+	discount Double required,
+	vat Double required,
+	paid Double required,
+	remaining Double required,
+	paymentMethod PaymentMethod required
+}
+
+relationship OneToOne {
+	// 	RentContract
+	RentContract{rentStatus} to VehicleItemStatus,
+    RentContract{returnStatus} to VehicleItemStatus,
+    RentContract{renter} to PersonInfo,
+    RentContract{extraDriver} to PersonInfo,
+  	RentContract{rentedDriver} to PersonInfo,
+    RentContract{vehicleDetails} to VehicleDetails,
+    RentContract{paymentDetails} to PaymentDetails
+}
+
+relationship OneToMany {
+	// rent contract
+	RentContract{contractStatus} to ContractStatus,
+	RentContract{contractType} to ContractType,
+    RentContract{driveArea} to DriveArea,
+    
+    
+    // person info
+    PersonInfo{idType} to IdType,
+    PersonInfo{nationality} to Nationality,
+    PersonInfo{licenseType} to LicenseType,
+    
+    // VehicleDetails
+    VehicleDetails{type} to VehicleType,
+    VehicleDetails{registrationType} to RegistrationType,
+    VehicleDetails{insuranceType} to InsuranceType,
+    VehicleDetails{oilType} to OilType,
+    VehicleDetails{fuelType} to FuelType,
+    
+    // PaymentDetails
+    PaymentDetails {paymentMethod} to PaymentMethod
+    
+}
+
+relationship ManyToOne {
+	RentContract{account} to RentalAccount ,
+    RentContract{branch} to Branch
+}
+
+// Set pagination options
+paginate RentContract with pagination
+
+
+
+
