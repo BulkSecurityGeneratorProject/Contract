@@ -1,0 +1,181 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-vehicle-details-heading">Create or edit a Vehicle Details</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_plateNumber">Plate Number</label>
+                    <input type="text" class="form-control" name="plateNumber" id="field_plateNumber"
+                           formControlName="plateNumber"/>
+                    <div *ngIf="editForm.get('plateNumber').invalid && (editForm.get('plateNumber').dirty || editForm.get('plateNumber').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('plateNumber').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_manufactureYear">Manufacture Year</label>
+                    <input type="number" class="form-control" name="manufactureYear" id="field_manufactureYear"
+                           formControlName="manufactureYear"/>
+                    <div *ngIf="editForm.get('manufactureYear').invalid && (editForm.get('manufactureYear').dirty || editForm.get('manufactureYear').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('manufactureYear').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('manufactureYear')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_color">Color</label>
+                    <input type="text" class="form-control" name="color" id="field_color"
+                           formControlName="color"/>
+                    <div *ngIf="editForm.get('color').invalid && (editForm.get('color').dirty || editForm.get('color').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('color').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_operationCardNumber">Operation Card Number</label>
+                    <input type="text" class="form-control" name="operationCardNumber" id="field_operationCardNumber"
+                           formControlName="operationCardNumber"/>
+                    <div *ngIf="editForm.get('operationCardNumber').invalid && (editForm.get('operationCardNumber').dirty || editForm.get('operationCardNumber').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('operationCardNumber').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_operationCardExpiryDate">Operation Card Expiry Date</label>
+                    <div class="d-flex">
+                        <input id="field_operationCardExpiryDate" type="datetime-local" class="form-control" name="operationCardExpiryDate" formControlName="operationCardExpiryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('operationCardExpiryDate').invalid && (editForm.get('operationCardExpiryDate').dirty || editForm.get('operationCardExpiryDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('operationCardExpiryDate').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('operationCardExpiryDate').errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_insuranceNumber">Insurance Number</label>
+                    <input type="text" class="form-control" name="insuranceNumber" id="field_insuranceNumber"
+                           formControlName="insuranceNumber"/>
+                    <div *ngIf="editForm.get('insuranceNumber').invalid && (editForm.get('insuranceNumber').dirty || editForm.get('insuranceNumber').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('insuranceNumber').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_insuranceExpiryDate">Insurance Expiry Date</label>
+                    <div class="d-flex">
+                        <input id="field_insuranceExpiryDate" type="datetime-local" class="form-control" name="insuranceExpiryDate" formControlName="insuranceExpiryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('insuranceExpiryDate').invalid && (editForm.get('insuranceExpiryDate').dirty || editForm.get('insuranceExpiryDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('insuranceExpiryDate').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('insuranceExpiryDate').errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_additionalInsurance">Additional Insurance</label>
+                    <input type="text" class="form-control" name="additionalInsurance" id="field_additionalInsurance"
+                           formControlName="additionalInsurance"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_oilChangeDate">Oil Change Date</label>
+                    <div class="d-flex">
+                        <input id="field_oilChangeDate" type="datetime-local" class="form-control" name="oilChangeDate" formControlName="oilChangeDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('oilChangeDate').invalid && (editForm.get('oilChangeDate').dirty || editForm.get('oilChangeDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('oilChangeDate').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('oilChangeDate').errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_oilChangeKmDistance">Oil Change Km Distance</label>
+                    <input type="number" class="form-control" name="oilChangeKmDistance" id="field_oilChangeKmDistance"
+                           formControlName="oilChangeKmDistance"/>
+                    <div *ngIf="editForm.get('oilChangeKmDistance').invalid && (editForm.get('oilChangeKmDistance').dirty || editForm.get('oilChangeKmDistance').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('oilChangeKmDistance').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('oilChangeKmDistance')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_availableFuel">Available Fuel</label>
+                    <input type="number" class="form-control" name="availableFuel" id="field_availableFuel"
+                           formControlName="availableFuel"/>
+                    <div *ngIf="editForm.get('availableFuel').invalid && (editForm.get('availableFuel').dirty || editForm.get('availableFuel').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('availableFuel').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('availableFuel')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_enduranceAmount">Endurance Amount</label>
+                    <input type="number" class="form-control" name="enduranceAmount" id="field_enduranceAmount"
+                           formControlName="enduranceAmount"/>
+                    <div *ngIf="editForm.get('enduranceAmount').invalid && (editForm.get('enduranceAmount').dirty || editForm.get('enduranceAmount').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('enduranceAmount').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('enduranceAmount')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

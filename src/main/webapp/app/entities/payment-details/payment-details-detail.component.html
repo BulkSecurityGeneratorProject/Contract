@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paymentDetails">
+            <h2><span>Payment Details</span> {{paymentDetails.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Total</span></dt>
+                <dd>
+                    <span>{{paymentDetails.total}}</span>
+                </dd>
+                <dt><span>Total Rent Cost</span></dt>
+                <dd>
+                    <span>{{paymentDetails.totalRentCost}}</span>
+                </dd>
+                <dt><span>Extra Km Cost</span></dt>
+                <dd>
+                    <span>{{paymentDetails.extraKmCost}}</span>
+                </dd>
+                <dt><span>Driver Cost</span></dt>
+                <dd>
+                    <span>{{paymentDetails.driverCost}}</span>
+                </dd>
+                <dt><span>International Authorization Cost</span></dt>
+                <dd>
+                    <span>{{paymentDetails.internationalAuthorizationCost}}</span>
+                </dd>
+                <dt><span>Vehicle Transfer Cost</span></dt>
+                <dd>
+                    <span>{{paymentDetails.vehicleTransferCost}}</span>
+                </dd>
+                <dt><span>Spare Parts Cost</span></dt>
+                <dd>
+                    <span>{{paymentDetails.sparePartsCost}}</span>
+                </dd>
+                <dt><span>Oil Change Cost</span></dt>
+                <dd>
+                    <span>{{paymentDetails.oilChangeCost}}</span>
+                </dd>
+                <dt><span>Damage Cost</span></dt>
+                <dd>
+                    <span>{{paymentDetails.damageCost}}</span>
+                </dd>
+                <dt><span>Fuel Cost</span></dt>
+                <dd>
+                    <span>{{paymentDetails.fuelCost}}</span>
+                </dd>
+                <dt><span>Discount Percentage</span></dt>
+                <dd>
+                    <span>{{paymentDetails.discountPercentage}}</span>
+                </dd>
+                <dt><span>Discount</span></dt>
+                <dd>
+                    <span>{{paymentDetails.discount}}</span>
+                </dd>
+                <dt><span>Vat</span></dt>
+                <dd>
+                    <span>{{paymentDetails.vat}}</span>
+                </dd>
+                <dt><span>Paid</span></dt>
+                <dd>
+                    <span>{{paymentDetails.paid}}</span>
+                </dd>
+                <dt><span>Remaining</span></dt>
+                <dd>
+                    <span>{{paymentDetails.remaining}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payment-details', paymentDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

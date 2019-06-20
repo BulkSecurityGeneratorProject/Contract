@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="registrationType">
+            <h2><span>Registration Type</span> {{registrationType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ar Name</span></dt>
+                <dd>
+                    <span>{{registrationType.arName}}</span>
+                </dd>
+                <dt><span>En Name</span></dt>
+                <dd>
+                    <span>{{registrationType.enName}}</span>
+                </dd>
+                <dt><span>Vehicle Details</span></dt>
+                <dd>
+                    <div *ngIf="registrationType.vehicleDetails">
+                        <a [routerLink]="['/vehicle-details', registrationType.vehicleDetails?.id, 'view']">{{registrationType.vehicleDetails?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/registration-type', registrationType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

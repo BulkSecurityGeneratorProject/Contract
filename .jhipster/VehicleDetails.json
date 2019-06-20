@@ -1,0 +1,127 @@
+{
+    "name": "VehicleDetails",
+    "fields": [
+        {
+            "fieldName": "plateNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "manufactureYear",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "color",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "operationCardNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "operationCardExpiryDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "insuranceNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "insuranceExpiryDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "additionalInsurance",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "oilChangeDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "oilChangeKmDistance",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "availableFuel",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "enduranceAmount",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "vehicleType",
+            "otherEntityRelationshipName": "vehicleDetails",
+            "relationshipName": "type"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "registrationType",
+            "otherEntityRelationshipName": "vehicleDetails",
+            "relationshipName": "registrationType"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "insuranceType",
+            "otherEntityRelationshipName": "vehicleDetails",
+            "relationshipName": "insuranceType"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "oilType",
+            "otherEntityRelationshipName": "vehicleDetails",
+            "relationshipName": "oilType"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "fuelType",
+            "otherEntityRelationshipName": "vehicleDetails",
+            "relationshipName": "fuelType"
+        }
+    ],
+    "changelogDate": "20190620104525",
+    "entityTableName": "vehicle_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

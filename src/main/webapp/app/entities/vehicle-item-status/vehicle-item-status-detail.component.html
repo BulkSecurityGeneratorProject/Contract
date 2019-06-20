@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vehicleItemStatus">
+            <h2><span>Vehicle Item Status</span> {{vehicleItemStatus.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ac</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.ac}}</span>
+                </dd>
+                <dt><span>Radio Stereo</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.radioStereo}}</span>
+                </dd>
+                <dt><span>Screen</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.screen}}</span>
+                </dd>
+                <dt><span>Speedometer</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.speedometer}}</span>
+                </dd>
+                <dt><span>Car Seats</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.carSeats}}</span>
+                </dd>
+                <dt><span>Tires</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.tires}}</span>
+                </dd>
+                <dt><span>Spare Tire</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.spareTire}}</span>
+                </dd>
+                <dt><span>Spare Tire Tools</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.spareTireTools}}</span>
+                </dd>
+                <dt><span>Firts Aid Kit</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.firtsAidKit}}</span>
+                </dd>
+                <dt><span>Key</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.key}}</span>
+                </dd>
+                <dt><span>Fire Extinguisher</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.fireExtinguisher}}</span>
+                </dd>
+                <dt><span>Safety Triangle</span></dt>
+                <dd>
+                    <span>{{vehicleItemStatus.safetyTriangle}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vehicle-item-status', vehicleItemStatus.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
