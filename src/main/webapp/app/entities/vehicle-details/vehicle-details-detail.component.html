@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vehicleDetails">
+            <h2><span>Vehicle Details</span> {{vehicleDetails.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Plate Number</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.plateNumber}}</span>
+                </dd>
+                <dt><span>Manufacture Year</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.manufactureYear}}</span>
+                </dd>
+                <dt><span>Color</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.color}}</span>
+                </dd>
+                <dt><span>Operation Card Number</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.operationCardNumber}}</span>
+                </dd>
+                <dt><span>Operation Card Expiry Date</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.operationCardExpiryDate}}</span>
+                </dd>
+                <dt><span>Insurance Number</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.insuranceNumber}}</span>
+                </dd>
+                <dt><span>Insurance Expiry Date</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.insuranceExpiryDate}}</span>
+                </dd>
+                <dt><span>Additional Insurance</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.additionalInsurance}}</span>
+                </dd>
+                <dt><span>Oil Change Date</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.oilChangeDate}}</span>
+                </dd>
+                <dt><span>Oil Change Km Distance</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.oilChangeKmDistance}}</span>
+                </dd>
+                <dt><span>Available Fuel</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.availableFuel}}</span>
+                </dd>
+                <dt><span>Endurance Amount</span></dt>
+                <dd>
+                    <span>{{vehicleDetails.enduranceAmount}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vehicle-details', vehicleDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

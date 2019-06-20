@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span>Person Infos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-person-info" [routerLink]="['/person-info/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Person Info
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="personInfos?.length === 0">
+        <span>No personInfos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="personInfos?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Ar Full Name</span></th>
+            <th><span>En Full Name</span></th>
+            <th><span>Birth Date</span></th>
+            <th><span>Hijri Birth Date</span></th>
+            <th><span>Id Expiry Date</span></th>
+            <th><span>Hijri Id Expiry Date</span></th>
+            <th><span>Id Copy Number</span></th>
+            <th><span>Issue Place</span></th>
+            <th><span>Mobile</span></th>
+            <th><span>License Expiry Date</span></th>
+            <th><span>Address</span></th>
+            <th><span>National Address</span></th>
+            <th><span>Work Address</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let personInfo of personInfos ;trackBy: trackId">
+                <td><a [routerLink]="['/person-info', personInfo.id, 'view' ]">{{personInfo.id}}</a></td>
+                <td>{{personInfo.arFullName}}</td>
+                <td>{{personInfo.enFullName}}</td>
+                <td>{{personInfo.birthDate | date:'medium'}}</td>
+                <td>{{personInfo.hijriBirthDate}}</td>
+                <td>{{personInfo.idExpiryDate | date:'medium'}}</td>
+                <td>{{personInfo.hijriIdExpiryDate}}</td>
+                <td>{{personInfo.idCopyNumber}}</td>
+                <td>{{personInfo.issuePlace}}</td>
+                <td>{{personInfo.mobile}}</td>
+                <td>{{personInfo.licenseExpiryDate | date:'medium'}}</td>
+                <td>{{personInfo.address}}</td>
+                <td>{{personInfo.nationalAddress}}</td>
+                <td>{{personInfo.workAddress}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/person-info', personInfo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/person-info', personInfo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'person-info', { outlets: { popup: personInfo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

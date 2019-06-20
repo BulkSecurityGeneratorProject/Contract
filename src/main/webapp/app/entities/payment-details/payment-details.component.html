@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span>Payment Details</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-payment-details" [routerLink]="['/payment-details/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Payment Details
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="paymentDetails?.length === 0">
+        <span>No paymentDetails found</span>
+    </div>
+    <div class="table-responsive" *ngIf="paymentDetails?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Total</span></th>
+            <th><span>Total Rent Cost</span></th>
+            <th><span>Extra Km Cost</span></th>
+            <th><span>Driver Cost</span></th>
+            <th><span>International Authorization Cost</span></th>
+            <th><span>Vehicle Transfer Cost</span></th>
+            <th><span>Spare Parts Cost</span></th>
+            <th><span>Oil Change Cost</span></th>
+            <th><span>Damage Cost</span></th>
+            <th><span>Fuel Cost</span></th>
+            <th><span>Discount Percentage</span></th>
+            <th><span>Discount</span></th>
+            <th><span>Vat</span></th>
+            <th><span>Paid</span></th>
+            <th><span>Remaining</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let paymentDetails of paymentDetails ;trackBy: trackId">
+                <td><a [routerLink]="['/payment-details', paymentDetails.id, 'view' ]">{{paymentDetails.id}}</a></td>
+                <td>{{paymentDetails.total}}</td>
+                <td>{{paymentDetails.totalRentCost}}</td>
+                <td>{{paymentDetails.extraKmCost}}</td>
+                <td>{{paymentDetails.driverCost}}</td>
+                <td>{{paymentDetails.internationalAuthorizationCost}}</td>
+                <td>{{paymentDetails.vehicleTransferCost}}</td>
+                <td>{{paymentDetails.sparePartsCost}}</td>
+                <td>{{paymentDetails.oilChangeCost}}</td>
+                <td>{{paymentDetails.damageCost}}</td>
+                <td>{{paymentDetails.fuelCost}}</td>
+                <td>{{paymentDetails.discountPercentage}}</td>
+                <td>{{paymentDetails.discount}}</td>
+                <td>{{paymentDetails.vat}}</td>
+                <td>{{paymentDetails.paid}}</td>
+                <td>{{paymentDetails.remaining}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/payment-details', paymentDetails.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/payment-details', paymentDetails.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'payment-details', { outlets: { popup: paymentDetails.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

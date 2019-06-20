@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span>Id Types</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-id-type" [routerLink]="['/id-type/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Id Type
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="idTypes?.length === 0">
+        <span>No idTypes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="idTypes?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Ar Name</span></th>
+            <th><span>En Name</span></th>
+            <th><span>Person Info</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let idType of idTypes ;trackBy: trackId">
+                <td><a [routerLink]="['/id-type', idType.id, 'view' ]">{{idType.id}}</a></td>
+                <td>{{idType.arName}}</td>
+                <td>{{idType.enName}}</td>
+                <td>
+                    <div *ngIf="idType.personInfo">
+                        <a [routerLink]="['../person-info', idType.personInfo?.id, 'view' ]" >{{idType.personInfo?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/id-type', idType.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/id-type', idType.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'id-type', { outlets: { popup: idType.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

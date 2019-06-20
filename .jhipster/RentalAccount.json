@@ -1,0 +1,23 @@
+{
+    "name": "RentalAccount",
+    "fields": [
+        {
+            "fieldName": "arName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190620104508",
+    "entityTableName": "rental_account",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

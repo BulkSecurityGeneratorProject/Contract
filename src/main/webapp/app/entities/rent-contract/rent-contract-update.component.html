@@ -1,0 +1,423 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-rent-contract-heading">Create or edit a Rent Contract</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contractNumber">Contract Number</label>
+                    <input type="number" class="form-control" name="contractNumber" id="field_contractNumber"
+                           formControlName="contractNumber"/>
+                    <div *ngIf="editForm.get('contractNumber').invalid && (editForm.get('contractNumber').dirty || editForm.get('contractNumber').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contractNumber').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('contractNumber')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contractSignDate">Contract Sign Date</label>
+                    <div class="d-flex">
+                        <input id="field_contractSignDate" type="datetime-local" class="form-control" name="contractSignDate" formControlName="contractSignDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('contractSignDate').invalid && (editForm.get('contractSignDate').dirty || editForm.get('contractSignDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contractSignDate').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('contractSignDate').errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contractStartDate">Contract Start Date</label>
+                    <div class="d-flex">
+                        <input id="field_contractStartDate" type="datetime-local" class="form-control" name="contractStartDate" formControlName="contractStartDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('contractStartDate').invalid && (editForm.get('contractStartDate').dirty || editForm.get('contractStartDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contractStartDate').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('contractStartDate').errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contractEndDate">Contract End Date</label>
+                    <div class="d-flex">
+                        <input id="field_contractEndDate" type="datetime-local" class="form-control" name="contractEndDate" formControlName="contractEndDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('contractEndDate').invalid && (editForm.get('contractEndDate').dirty || editForm.get('contractEndDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contractEndDate').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('contractEndDate').errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contractSignLocation">Contract Sign Location</label>
+                    <input type="text" class="form-control" name="contractSignLocation" id="field_contractSignLocation"
+                           formControlName="contractSignLocation"/>
+                    <div *ngIf="editForm.get('contractSignLocation').invalid && (editForm.get('contractSignLocation').dirty || editForm.get('contractSignLocation').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contractSignLocation').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_extendedTo">Extended To</label>
+                    <input type="text" class="form-control" name="extendedTo" id="field_extendedTo"
+                           formControlName="extendedTo"/>
+                    <div *ngIf="editForm.get('extendedTo').invalid && (editForm.get('extendedTo').dirty || editForm.get('extendedTo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('extendedTo').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_extendedTimes">Extended Times</label>
+                    <input type="number" class="form-control" name="extendedTimes" id="field_extendedTimes"
+                           formControlName="extendedTimes"/>
+                    <div *ngIf="editForm.get('extendedTimes').invalid && (editForm.get('extendedTimes').dirty || editForm.get('extendedTimes').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('extendedTimes').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('extendedTimes')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rentDuration">Rent Duration</label>
+                    <input type="number" class="form-control" name="rentDuration" id="field_rentDuration"
+                           formControlName="rentDuration"/>
+                    <div *ngIf="editForm.get('rentDuration').invalid && (editForm.get('rentDuration').dirty || editForm.get('rentDuration').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rentDuration').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('rentDuration')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rentDayCost">Rent Day Cost</label>
+                    <input type="number" class="form-control" name="rentDayCost" id="field_rentDayCost"
+                           formControlName="rentDayCost"/>
+                    <div *ngIf="editForm.get('rentDayCost').invalid && (editForm.get('rentDayCost').dirty || editForm.get('rentDayCost').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rentDayCost').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('rentDayCost')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rentHourCost">Rent Hour Cost</label>
+                    <input type="number" class="form-control" name="rentHourCost" id="field_rentHourCost"
+                           formControlName="rentHourCost"/>
+                    <div *ngIf="editForm.get('rentHourCost').invalid && (editForm.get('rentHourCost').dirty || editForm.get('rentHourCost').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rentHourCost').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('rentHourCost')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_odometerKmBefore">Odometer Km Before</label>
+                    <input type="number" class="form-control" name="odometerKmBefore" id="field_odometerKmBefore"
+                           formControlName="odometerKmBefore"/>
+                    <div *ngIf="editForm.get('odometerKmBefore').invalid && (editForm.get('odometerKmBefore').dirty || editForm.get('odometerKmBefore').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('odometerKmBefore').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('odometerKmBefore')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_allowedLateHours">Allowed Late Hours</label>
+                    <input type="number" class="form-control" name="allowedLateHours" id="field_allowedLateHours"
+                           formControlName="allowedLateHours"/>
+                    <div *ngIf="editForm.get('allowedLateHours').invalid && (editForm.get('allowedLateHours').dirty || editForm.get('allowedLateHours').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('allowedLateHours').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('allowedLateHours')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lateHourCost">Late Hour Cost</label>
+                    <input type="number" class="form-control" name="lateHourCost" id="field_lateHourCost"
+                           formControlName="lateHourCost"/>
+                    <div *ngIf="editForm.get('lateHourCost').invalid && (editForm.get('lateHourCost').dirty || editForm.get('lateHourCost').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lateHourCost').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lateHourCost')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_allowedKmPerDay">Allowed Km Per Day</label>
+                    <input type="number" class="form-control" name="allowedKmPerDay" id="field_allowedKmPerDay"
+                           formControlName="allowedKmPerDay"/>
+                    <div *ngIf="editForm.get('allowedKmPerDay').invalid && (editForm.get('allowedKmPerDay').dirty || editForm.get('allowedKmPerDay').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('allowedKmPerDay').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('allowedKmPerDay')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_allowedKmPerHour">Allowed Km Per Hour</label>
+                    <input type="number" class="form-control" name="allowedKmPerHour" id="field_allowedKmPerHour"
+                           formControlName="allowedKmPerHour"/>
+                    <div *ngIf="editForm.get('allowedKmPerHour').invalid && (editForm.get('allowedKmPerHour').dirty || editForm.get('allowedKmPerHour').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('allowedKmPerHour').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('allowedKmPerHour')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_carTransferCost">Car Transfer Cost</label>
+                    <input type="number" class="form-control" name="carTransferCost" id="field_carTransferCost"
+                           formControlName="carTransferCost"/>
+                    <div *ngIf="editForm.get('carTransferCost').invalid && (editForm.get('carTransferCost').dirty || editForm.get('carTransferCost').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('carTransferCost').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('carTransferCost')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_receiveLocation">Receive Location</label>
+                    <input type="text" class="form-control" name="receiveLocation" id="field_receiveLocation"
+                           formControlName="receiveLocation"/>
+                    <div *ngIf="editForm.get('receiveLocation').invalid && (editForm.get('receiveLocation').dirty || editForm.get('receiveLocation').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('receiveLocation').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_returnLocation">Return Location</label>
+                    <input type="text" class="form-control" name="returnLocation" id="field_returnLocation"
+                           formControlName="returnLocation"/>
+                    <div *ngIf="editForm.get('returnLocation').invalid && (editForm.get('returnLocation').dirty || editForm.get('returnLocation').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('returnLocation').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_earlyReturnPolicy">Early Return Policy</label>
+                    <input type="text" class="form-control" name="earlyReturnPolicy" id="field_earlyReturnPolicy"
+                           formControlName="earlyReturnPolicy"/>
+                    <div *ngIf="editForm.get('earlyReturnPolicy').invalid && (editForm.get('earlyReturnPolicy').dirty || editForm.get('earlyReturnPolicy').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('earlyReturnPolicy').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contractExtensionMechanism">Contract Extension Mechanism</label>
+                    <input type="text" class="form-control" name="contractExtensionMechanism" id="field_contractExtensionMechanism"
+                           formControlName="contractExtensionMechanism"/>
+                    <div *ngIf="editForm.get('contractExtensionMechanism').invalid && (editForm.get('contractExtensionMechanism').dirty || editForm.get('contractExtensionMechanism').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contractExtensionMechanism').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_accidentsAndFaultReportingMechanism">Accidents And Fault Reporting Mechanism</label>
+                    <input type="text" class="form-control" name="accidentsAndFaultReportingMechanism" id="field_accidentsAndFaultReportingMechanism"
+                           formControlName="accidentsAndFaultReportingMechanism"/>
+                    <div *ngIf="editForm.get('accidentsAndFaultReportingMechanism').invalid && (editForm.get('accidentsAndFaultReportingMechanism').dirty || editForm.get('accidentsAndFaultReportingMechanism').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('accidentsAndFaultReportingMechanism').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_odometerKmAfter">Odometer Km After</label>
+                    <input type="number" class="form-control" name="odometerKmAfter" id="field_odometerKmAfter"
+                           formControlName="odometerKmAfter"/>
+                    <div *ngIf="editForm.get('odometerKmAfter').invalid && (editForm.get('odometerKmAfter').dirty || editForm.get('odometerKmAfter').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('odometerKmAfter').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('odometerKmAfter')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lateHours">Late Hours</label>
+                    <input type="number" class="form-control" name="lateHours" id="field_lateHours"
+                           formControlName="lateHours"/>
+                    <div *ngIf="editForm.get('lateHours').invalid && (editForm.get('lateHours').dirty || editForm.get('lateHours').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lateHours').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lateHours')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_oilChangeTime">Oil Change Time</label>
+                    <div class="d-flex">
+                        <input id="field_oilChangeTime" type="datetime-local" class="form-control" name="oilChangeTime" formControlName="oilChangeTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('oilChangeTime').invalid && (editForm.get('oilChangeTime').dirty || editForm.get('oilChangeTime').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('oilChangeTime').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('oilChangeTime').errors?.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rentStatus">Rent Status</label>
+                    <select class="form-control" id="field_rentStatus" name="rentStatus" formControlName="rentStatus">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vehicleItemStatusOption.id === editForm.get('rentStatus').value?.id ? editForm.get('rentStatus').value : vehicleItemStatusOption" *ngFor="let vehicleItemStatusOption of rentstatuses; trackBy: trackVehicleItemStatusById">{{vehicleItemStatusOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_returnStatus">Return Status</label>
+                    <select class="form-control" id="field_returnStatus" name="returnStatus" formControlName="returnStatus">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vehicleItemStatusOption.id === editForm.get('returnStatus').value?.id ? editForm.get('returnStatus').value : vehicleItemStatusOption" *ngFor="let vehicleItemStatusOption of returnstatuses; trackBy: trackVehicleItemStatusById">{{vehicleItemStatusOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_renter">Renter</label>
+                    <select class="form-control" id="field_renter" name="renter" formControlName="renter">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personInfoOption.id === editForm.get('renter').value?.id ? editForm.get('renter').value : personInfoOption" *ngFor="let personInfoOption of renters; trackBy: trackPersonInfoById">{{personInfoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_extraDriver">Extra Driver</label>
+                    <select class="form-control" id="field_extraDriver" name="extraDriver" formControlName="extraDriver">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personInfoOption.id === editForm.get('extraDriver').value?.id ? editForm.get('extraDriver').value : personInfoOption" *ngFor="let personInfoOption of extradrivers; trackBy: trackPersonInfoById">{{personInfoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rentedDriver">Rented Driver</label>
+                    <select class="form-control" id="field_rentedDriver" name="rentedDriver" formControlName="rentedDriver">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personInfoOption.id === editForm.get('rentedDriver').value?.id ? editForm.get('rentedDriver').value : personInfoOption" *ngFor="let personInfoOption of renteddrivers; trackBy: trackPersonInfoById">{{personInfoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vehicleDetails">Vehicle Details</label>
+                    <select class="form-control" id="field_vehicleDetails" name="vehicleDetails" formControlName="vehicleDetails">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vehicleDetailsOption.id === editForm.get('vehicleDetails').value?.id ? editForm.get('vehicleDetails').value : vehicleDetailsOption" *ngFor="let vehicleDetailsOption of vehicledetails; trackBy: trackVehicleDetailsById">{{vehicleDetailsOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paymentDetails">Payment Details</label>
+                    <select class="form-control" id="field_paymentDetails" name="paymentDetails" formControlName="paymentDetails">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paymentDetailsOption.id === editForm.get('paymentDetails').value?.id ? editForm.get('paymentDetails').value : paymentDetailsOption" *ngFor="let paymentDetailsOption of paymentdetails; trackBy: trackPaymentDetailsById">{{paymentDetailsOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_account">Account</label>
+                    <select class="form-control" id="field_account" name="account" formControlName="account">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="rentalAccountOption.id === editForm.get('account').value?.id ? editForm.get('account').value : rentalAccountOption" *ngFor="let rentalAccountOption of rentalaccounts; trackBy: trackRentalAccountById">{{rentalAccountOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_branch">Branch</label>
+                    <select class="form-control" id="field_branch" name="branch" formControlName="branch">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="branchOption.id === editForm.get('branch').value?.id ? editForm.get('branch').value : branchOption" *ngFor="let branchOption of branches; trackBy: trackBranchById">{{branchOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

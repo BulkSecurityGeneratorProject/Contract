@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contractType">
+            <h2><span>Contract Type</span> {{contractType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ar Name</span></dt>
+                <dd>
+                    <span>{{contractType.arName}}</span>
+                </dd>
+                <dt><span>En Name</span></dt>
+                <dd>
+                    <span>{{contractType.enName}}</span>
+                </dd>
+                <dt><span>Rent Contract</span></dt>
+                <dd>
+                    <div *ngIf="contractType.rentContract">
+                        <a [routerLink]="['/rent-contract', contractType.rentContract?.id, 'view']">{{contractType.rentContract?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contract-type', contractType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

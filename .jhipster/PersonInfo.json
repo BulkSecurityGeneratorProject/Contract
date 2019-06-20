@@ -1,0 +1,101 @@
+{
+    "name": "PersonInfo",
+    "fields": [
+        {
+            "fieldName": "arFullName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "enFullName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "birthDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "hijriBirthDate",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idExpiryDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "hijriIdExpiryDate",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idCopyNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "issuePlace",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "licenseExpiryDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nationalAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "workAddress",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "idType",
+            "otherEntityRelationshipName": "personInfo",
+            "relationshipName": "idType"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "nationality",
+            "otherEntityRelationshipName": "personInfo",
+            "relationshipName": "nationality"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "licenseType",
+            "otherEntityRelationshipName": "personInfo",
+            "relationshipName": "licenseType"
+        }
+    ],
+    "changelogDate": "20190620104524",
+    "entityTableName": "person_info",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
