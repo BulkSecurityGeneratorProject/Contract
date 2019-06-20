@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span>Vehicle Details</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vehicle-details" [routerLink]="['/vehicle-details/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Vehicle Details
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="vehicleDetails?.length === 0">
+        <span>No vehicleDetails found</span>
+    </div>
+    <div class="table-responsive" *ngIf="vehicleDetails?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Plate Number</span></th>
+            <th><span>Manufacture Year</span></th>
+            <th><span>Color</span></th>
+            <th><span>Operation Card Number</span></th>
+            <th><span>Operation Card Expiry Date</span></th>
+            <th><span>Insurance Number</span></th>
+            <th><span>Insurance Expiry Date</span></th>
+            <th><span>Additional Insurance</span></th>
+            <th><span>Oil Change Date</span></th>
+            <th><span>Oil Change Km Distance</span></th>
+            <th><span>Available Fuel</span></th>
+            <th><span>Endurance Amount</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let vehicleDetails of vehicleDetails ;trackBy: trackId">
+                <td><a [routerLink]="['/vehicle-details', vehicleDetails.id, 'view' ]">{{vehicleDetails.id}}</a></td>
+                <td>{{vehicleDetails.plateNumber}}</td>
+                <td>{{vehicleDetails.manufactureYear}}</td>
+                <td>{{vehicleDetails.color}}</td>
+                <td>{{vehicleDetails.operationCardNumber}}</td>
+                <td>{{vehicleDetails.operationCardExpiryDate | date:'medium'}}</td>
+                <td>{{vehicleDetails.insuranceNumber}}</td>
+                <td>{{vehicleDetails.insuranceExpiryDate | date:'medium'}}</td>
+                <td>{{vehicleDetails.additionalInsurance}}</td>
+                <td>{{vehicleDetails.oilChangeDate | date:'medium'}}</td>
+                <td>{{vehicleDetails.oilChangeKmDistance}}</td>
+                <td>{{vehicleDetails.availableFuel}}</td>
+                <td>{{vehicleDetails.enduranceAmount}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/vehicle-details', vehicleDetails.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/vehicle-details', vehicleDetails.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'vehicle-details', { outlets: { popup: vehicleDetails.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

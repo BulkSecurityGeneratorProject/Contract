@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span>Insurance Types</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-insurance-type" [routerLink]="['/insurance-type/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Insurance Type
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="insuranceTypes?.length === 0">
+        <span>No insuranceTypes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="insuranceTypes?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Ar Name</span></th>
+            <th><span>En Name</span></th>
+            <th><span>Vehicle Details</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let insuranceType of insuranceTypes ;trackBy: trackId">
+                <td><a [routerLink]="['/insurance-type', insuranceType.id, 'view' ]">{{insuranceType.id}}</a></td>
+                <td>{{insuranceType.arName}}</td>
+                <td>{{insuranceType.enName}}</td>
+                <td>
+                    <div *ngIf="insuranceType.vehicleDetails">
+                        <a [routerLink]="['../vehicle-details', insuranceType.vehicleDetails?.id, 'view' ]" >{{insuranceType.vehicleDetails?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/insurance-type', insuranceType.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/insurance-type', insuranceType.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'insurance-type', { outlets: { popup: insuranceType.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

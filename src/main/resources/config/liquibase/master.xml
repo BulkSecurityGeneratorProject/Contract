@@ -14,6 +14,38 @@
     <property name="uuidType" value="uuid" dbms="h2, mssql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083019_added_entity_RentalAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083020_added_entity_Branch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083021_added_entity_ContractStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083022_added_entity_ContractType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083023_added_entity_DriveArea.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083024_added_entity_IdType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083025_added_entity_LicenseType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083026_added_entity_VehicleType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083027_added_entity_RegistrationType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083028_added_entity_InsuranceType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083029_added_entity_OilType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083030_added_entity_FuelType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083031_added_entity_PaymentMethod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083032_added_entity_Nationality.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083033_added_entity_RentContract.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083034_added_entity_VehicleItemStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083035_added_entity_PersonInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083036_added_entity_VehicleDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083037_added_entity_PaymentDetails.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190620083021_added_entity_constraints_ContractStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083022_added_entity_constraints_ContractType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083023_added_entity_constraints_DriveArea.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083024_added_entity_constraints_IdType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083025_added_entity_constraints_LicenseType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083026_added_entity_constraints_VehicleType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083027_added_entity_constraints_RegistrationType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083028_added_entity_constraints_InsuranceType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083029_added_entity_constraints_OilType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083030_added_entity_constraints_FuelType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083031_added_entity_constraints_PaymentMethod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083032_added_entity_constraints_Nationality.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190620083033_added_entity_constraints_RentContract.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

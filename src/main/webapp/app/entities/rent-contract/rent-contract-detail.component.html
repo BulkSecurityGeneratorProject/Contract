@@ -1,0 +1,173 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rentContract">
+            <h2><span>Rent Contract</span> {{rentContract.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Contract Number</span></dt>
+                <dd>
+                    <span>{{rentContract.contractNumber}}</span>
+                </dd>
+                <dt><span>Contract Sign Date</span></dt>
+                <dd>
+                    <span>{{rentContract.contractSignDate}}</span>
+                </dd>
+                <dt><span>Contract Start Date</span></dt>
+                <dd>
+                    <span>{{rentContract.contractStartDate}}</span>
+                </dd>
+                <dt><span>Contract End Date</span></dt>
+                <dd>
+                    <span>{{rentContract.contractEndDate}}</span>
+                </dd>
+                <dt><span>Contract Sign Location</span></dt>
+                <dd>
+                    <span>{{rentContract.contractSignLocation}}</span>
+                </dd>
+                <dt><span>Extended To</span></dt>
+                <dd>
+                    <span>{{rentContract.extendedTo}}</span>
+                </dd>
+                <dt><span>Extended Times</span></dt>
+                <dd>
+                    <span>{{rentContract.extendedTimes}}</span>
+                </dd>
+                <dt><span>Rent Duration</span></dt>
+                <dd>
+                    <span>{{rentContract.rentDuration}}</span>
+                </dd>
+                <dt><span>Rent Day Cost</span></dt>
+                <dd>
+                    <span>{{rentContract.rentDayCost}}</span>
+                </dd>
+                <dt><span>Rent Hour Cost</span></dt>
+                <dd>
+                    <span>{{rentContract.rentHourCost}}</span>
+                </dd>
+                <dt><span>Odometer Km Before</span></dt>
+                <dd>
+                    <span>{{rentContract.odometerKmBefore}}</span>
+                </dd>
+                <dt><span>Allowed Late Hours</span></dt>
+                <dd>
+                    <span>{{rentContract.allowedLateHours}}</span>
+                </dd>
+                <dt><span>Late Hour Cost</span></dt>
+                <dd>
+                    <span>{{rentContract.lateHourCost}}</span>
+                </dd>
+                <dt><span>Allowed Km Per Day</span></dt>
+                <dd>
+                    <span>{{rentContract.allowedKmPerDay}}</span>
+                </dd>
+                <dt><span>Allowed Km Per Hour</span></dt>
+                <dd>
+                    <span>{{rentContract.allowedKmPerHour}}</span>
+                </dd>
+                <dt><span>Car Transfer Cost</span></dt>
+                <dd>
+                    <span>{{rentContract.carTransferCost}}</span>
+                </dd>
+                <dt><span>Receive Location</span></dt>
+                <dd>
+                    <span>{{rentContract.receiveLocation}}</span>
+                </dd>
+                <dt><span>Return Location</span></dt>
+                <dd>
+                    <span>{{rentContract.returnLocation}}</span>
+                </dd>
+                <dt><span>Early Return Policy</span></dt>
+                <dd>
+                    <span>{{rentContract.earlyReturnPolicy}}</span>
+                </dd>
+                <dt><span>Contract Extension Mechanism</span></dt>
+                <dd>
+                    <span>{{rentContract.contractExtensionMechanism}}</span>
+                </dd>
+                <dt><span>Accidents And Fault Reporting Mechanism</span></dt>
+                <dd>
+                    <span>{{rentContract.accidentsAndFaultReportingMechanism}}</span>
+                </dd>
+                <dt><span>Odometer Km After</span></dt>
+                <dd>
+                    <span>{{rentContract.odometerKmAfter}}</span>
+                </dd>
+                <dt><span>Late Hours</span></dt>
+                <dd>
+                    <span>{{rentContract.lateHours}}</span>
+                </dd>
+                <dt><span>Oil Change Time</span></dt>
+                <dd>
+                    <span>{{rentContract.oilChangeTime}}</span>
+                </dd>
+                <dt><span>Rent Status</span></dt>
+                <dd>
+                    <div *ngIf="rentContract.rentStatus">
+                        <a [routerLink]="['/vehicle-item-status', rentContract.rentStatus?.id, 'view']">{{rentContract.rentStatus?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Return Status</span></dt>
+                <dd>
+                    <div *ngIf="rentContract.returnStatus">
+                        <a [routerLink]="['/vehicle-item-status', rentContract.returnStatus?.id, 'view']">{{rentContract.returnStatus?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Renter</span></dt>
+                <dd>
+                    <div *ngIf="rentContract.renter">
+                        <a [routerLink]="['/person-info', rentContract.renter?.id, 'view']">{{rentContract.renter?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Extra Driver</span></dt>
+                <dd>
+                    <div *ngIf="rentContract.extraDriver">
+                        <a [routerLink]="['/person-info', rentContract.extraDriver?.id, 'view']">{{rentContract.extraDriver?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Rented Driver</span></dt>
+                <dd>
+                    <div *ngIf="rentContract.rentedDriver">
+                        <a [routerLink]="['/person-info', rentContract.rentedDriver?.id, 'view']">{{rentContract.rentedDriver?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Vehicle Details</span></dt>
+                <dd>
+                    <div *ngIf="rentContract.vehicleDetails">
+                        <a [routerLink]="['/vehicle-details', rentContract.vehicleDetails?.id, 'view']">{{rentContract.vehicleDetails?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Payment Details</span></dt>
+                <dd>
+                    <div *ngIf="rentContract.paymentDetails">
+                        <a [routerLink]="['/payment-details', rentContract.paymentDetails?.id, 'view']">{{rentContract.paymentDetails?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Account</span></dt>
+                <dd>
+                    <div *ngIf="rentContract.account">
+                        <a [routerLink]="['/rental-account', rentContract.account?.id, 'view']">{{rentContract.account?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Branch</span></dt>
+                <dd>
+                    <div *ngIf="rentContract.branch">
+                        <a [routerLink]="['/branch', rentContract.branch?.id, 'view']">{{rentContract.branch?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rent-contract', rentContract.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

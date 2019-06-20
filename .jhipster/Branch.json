@@ -1,0 +1,23 @@
+{
+    "name": "Branch",
+    "fields": [
+        {
+            "fieldName": "arName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190620083020",
+    "entityTableName": "branch",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

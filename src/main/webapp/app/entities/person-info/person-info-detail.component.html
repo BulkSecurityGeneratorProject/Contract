@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="personInfo">
+            <h2><span>Person Info</span> {{personInfo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Ar Full Name</span></dt>
+                <dd>
+                    <span>{{personInfo.arFullName}}</span>
+                </dd>
+                <dt><span>En Full Name</span></dt>
+                <dd>
+                    <span>{{personInfo.enFullName}}</span>
+                </dd>
+                <dt><span>Birth Date</span></dt>
+                <dd>
+                    <span>{{personInfo.birthDate}}</span>
+                </dd>
+                <dt><span>Hijri Birth Date</span></dt>
+                <dd>
+                    <span>{{personInfo.hijriBirthDate}}</span>
+                </dd>
+                <dt><span>Id Expiry Date</span></dt>
+                <dd>
+                    <span>{{personInfo.idExpiryDate}}</span>
+                </dd>
+                <dt><span>Hijri Id Expiry Date</span></dt>
+                <dd>
+                    <span>{{personInfo.hijriIdExpiryDate}}</span>
+                </dd>
+                <dt><span>Id Copy Number</span></dt>
+                <dd>
+                    <span>{{personInfo.idCopyNumber}}</span>
+                </dd>
+                <dt><span>Issue Place</span></dt>
+                <dd>
+                    <span>{{personInfo.issuePlace}}</span>
+                </dd>
+                <dt><span>Mobile</span></dt>
+                <dd>
+                    <span>{{personInfo.mobile}}</span>
+                </dd>
+                <dt><span>License Expiry Date</span></dt>
+                <dd>
+                    <span>{{personInfo.licenseExpiryDate}}</span>
+                </dd>
+                <dt><span>Address</span></dt>
+                <dd>
+                    <span>{{personInfo.address}}</span>
+                </dd>
+                <dt><span>National Address</span></dt>
+                <dd>
+                    <span>{{personInfo.nationalAddress}}</span>
+                </dd>
+                <dt><span>Work Address</span></dt>
+                <dd>
+                    <span>{{personInfo.workAddress}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/person-info', personInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

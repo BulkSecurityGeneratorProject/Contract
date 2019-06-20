@@ -1,0 +1,30 @@
+{
+    "name": "ContractType",
+    "fields": [
+        {
+            "fieldName": "arName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "rentContract",
+            "otherEntityName": "rentContract",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190620083022",
+    "entityTableName": "contract_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

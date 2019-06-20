@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span>Vehicle Item Statuses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vehicle-item-status" [routerLink]="['/vehicle-item-status/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Vehicle Item Status
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="vehicleItemStatuses?.length === 0">
+        <span>No vehicleItemStatuses found</span>
+    </div>
+    <div class="table-responsive" *ngIf="vehicleItemStatuses?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Ac</span></th>
+            <th><span>Radio Stereo</span></th>
+            <th><span>Screen</span></th>
+            <th><span>Speedometer</span></th>
+            <th><span>Car Seats</span></th>
+            <th><span>Tires</span></th>
+            <th><span>Spare Tire</span></th>
+            <th><span>Spare Tire Tools</span></th>
+            <th><span>Firts Aid Kit</span></th>
+            <th><span>Key</span></th>
+            <th><span>Fire Extinguisher</span></th>
+            <th><span>Safety Triangle</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let vehicleItemStatus of vehicleItemStatuses ;trackBy: trackId">
+                <td><a [routerLink]="['/vehicle-item-status', vehicleItemStatus.id, 'view' ]">{{vehicleItemStatus.id}}</a></td>
+                <td>{{vehicleItemStatus.ac}}</td>
+                <td>{{vehicleItemStatus.radioStereo}}</td>
+                <td>{{vehicleItemStatus.screen}}</td>
+                <td>{{vehicleItemStatus.speedometer}}</td>
+                <td>{{vehicleItemStatus.carSeats}}</td>
+                <td>{{vehicleItemStatus.tires}}</td>
+                <td>{{vehicleItemStatus.spareTire}}</td>
+                <td>{{vehicleItemStatus.spareTireTools}}</td>
+                <td>{{vehicleItemStatus.firtsAidKit}}</td>
+                <td>{{vehicleItemStatus.key}}</td>
+                <td>{{vehicleItemStatus.fireExtinguisher}}</td>
+                <td>{{vehicleItemStatus.safetyTriangle}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/vehicle-item-status', vehicleItemStatus.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/vehicle-item-status', vehicleItemStatus.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'vehicle-item-status', { outlets: { popup: vehicleItemStatus.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

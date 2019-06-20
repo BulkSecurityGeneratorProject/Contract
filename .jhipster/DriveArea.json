@@ -1,0 +1,30 @@
+{
+    "name": "DriveArea",
+    "fields": [
+        {
+            "fieldName": "arName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "rentContract",
+            "otherEntityName": "rentContract",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190620083023",
+    "entityTableName": "drive_area",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

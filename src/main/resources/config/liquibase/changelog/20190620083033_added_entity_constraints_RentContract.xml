@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity RentContract.
+    -->
+    <changeSet id="20190620083033-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="rent_status_id"
+                                 baseTableName="rent_contract"
+                                 constraintName="fk_rent_contract_rent_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vehicle_item_status"/>
+
+        <addForeignKeyConstraint baseColumnNames="return_status_id"
+                                 baseTableName="rent_contract"
+                                 constraintName="fk_rent_contract_return_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vehicle_item_status"/>
+
+        <addForeignKeyConstraint baseColumnNames="renter_id"
+                                 baseTableName="rent_contract"
+                                 constraintName="fk_rent_contract_renter_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person_info"/>
+
+        <addForeignKeyConstraint baseColumnNames="extra_driver_id"
+                                 baseTableName="rent_contract"
+                                 constraintName="fk_rent_contract_extra_driver_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person_info"/>
+
+        <addForeignKeyConstraint baseColumnNames="rented_driver_id"
+                                 baseTableName="rent_contract"
+                                 constraintName="fk_rent_contract_rented_driver_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person_info"/>
+
+        <addForeignKeyConstraint baseColumnNames="vehicle_details_id"
+                                 baseTableName="rent_contract"
+                                 constraintName="fk_rent_contract_vehicle_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vehicle_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="payment_details_id"
+                                 baseTableName="rent_contract"
+                                 constraintName="fk_rent_contract_payment_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="account_id"
+                                 baseTableName="rent_contract"
+                                 constraintName="fk_rent_contract_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rental_account"/>
+
+        <addForeignKeyConstraint baseColumnNames="branch_id"
+                                 baseTableName="rent_contract"
+                                 constraintName="fk_rent_contract_branch_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="branch"/>
+
+    </changeSet>
+</databaseChangeLog>

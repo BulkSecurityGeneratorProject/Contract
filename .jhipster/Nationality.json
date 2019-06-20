@@ -1,0 +1,30 @@
+{
+    "name": "Nationality",
+    "fields": [
+        {
+            "fieldName": "arName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "enName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "personInfo",
+            "otherEntityName": "personInfo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190620083032",
+    "entityTableName": "nationality",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
